@@ -1,6 +1,7 @@
-public class WidgetFactory {
+import javax.swing.*;
+import java.text.DecimalFormat;
 
-    /*
+/*
     Lessons L1 - L3
 
     You have been asked by the manager of the Widget Factory to create a program which will tell how many days it will take to produce a number of widgets.
@@ -28,4 +29,25 @@ public class WidgetFactory {
      Profit: $760.00
 
      */
+public class WidgetFactory {
+
+    DecimalFormat round = new DecimalFormat("#,000.00");
+
+    public static void main(String[] args) {
+
+        int widgetNumber = Integer.parseInt(JOptionPane.showInputDialog("Number of widgets: "));
+
+        JOptionPane.showMessageDialog(null,"Number of Widgets: " + widgetNumber);
+        JOptionPane.showMessageDialog(null,"Number of Days: " + widgetDays(widgetNumber));
+
+        System.exit(0);
+    }
+
+    public static int widgetDays (int widgetNumber){
+        return widgetNumber%16-1;
+    }
+
+    public double COP(int widgetNumber){
+        return 10*(16.50*widgetDays(widgetNumber));
+    }
 }
